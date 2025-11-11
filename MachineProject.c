@@ -5,6 +5,7 @@ Student Name: Matthew Miguel S. Fabiala
 Section : S19B
 */
 
+/*
 #include <stdio.h>
 
 void diceRoll()
@@ -26,14 +27,20 @@ void runLevelThree()
 int decideAI()
 // check if players 1, 2, 3, and 4 are played by either a human or an AI
 
-int numOfPlayers()
-// ask how many players will play the game and assign the needed values for each
-player
-
 int askLevel()
 // ask what difficulty the players would like to play and use the value to trigger
 the use of any "runLevel" function
+*/
 
+
+
+
+int mainMenu()
+{
+    printf("Welcome to A Walk in the Sequence Park!")
+    
+
+}
 
 
 /* Dev Notes:
