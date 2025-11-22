@@ -17,7 +17,7 @@ int diceRoll(){
 	
 	printf("\n\n=======================================================\n\n");
 	printf("The number rolled on the die is: %d\n", nRoll);
-	printf("You will now have a chance to move up %d space(s)!\n\n", nRoll);	
+	printf("You will now have a chance to move up to %d space(s)!\n\n", nRoll);	
 	printf("=======================================================\n\n");
 	
 	return nRoll;

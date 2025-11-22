@@ -17,6 +17,7 @@ int runLevelOne(int score){
 
 	int roll = diceRoll(); // Getting the points for the player's turn
 	
+	score += roll; //Player moves up __ spaces
 	printf("\t\t   Current score: %d\n\n", score);
 	
 	// Generating a random number sequence
@@ -88,8 +89,6 @@ int runLevelOne(int score){
     if (player_guess == correct_answer) {
         printf("Correct! You guessed it right!\n\n\n");
         printf("\t>>> You have successfully moved up %d spaces! <<<\n\n", roll);
-        
-        score += roll;
     } 
     // The player gets the wrong answer
 	else{
@@ -124,8 +123,9 @@ int runLevelTwo(int score){
 
 	int roll = diceRoll(); // Getting the points for the player's turn
 	
+	score += roll; //Player moves up __ spaces
 	printf("\t\t   Current score: %d\n\n", score);
-	
+		
 	// Generating a random number sequence
 	if(sequence_type == 1){
 		
@@ -214,8 +214,6 @@ int runLevelTwo(int score){
     if (player_guess1 == correct_answer1 && player_guess2 == correct_answer2) {
         printf("Correct! You got both terms right!\n\n");
         printf("\t>>> You have successfully moved up %d spaces! <<<\n\n", roll);
-        
-		score += roll;
     } 
     // The player gets the wrong answer
 	else{
@@ -260,6 +258,7 @@ int runLevelThree(int score){
     current_num = first_num;
     current_letter = first_letter;
 	
+	score += roll; //Player moves up __ spaces
 	printf("\t\t   Current score: %d\n\n", score);
 	
 	printf("===========================================================================\n");	
@@ -324,8 +323,6 @@ int runLevelThree(int score){
         
         printf("Correct! You got both complex terms right!\n\n");
         printf("\t>>> You have successfully moved up %d spaces! <<<\n\n", roll);
-        
-        score += roll;
     }
     
     // Player gets the wrong answer
