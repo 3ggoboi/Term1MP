@@ -2,7 +2,7 @@
 CCPROG1 Machine Project
 "A Walk in The Sequence Park"
 Student Name: Matthew Miguel S. Fabiala
-Section : S19B
+Section: S19B
 */
 
 #include <stdio.h>
@@ -20,8 +20,11 @@ int main()
 	srand(time(NULL));		// seeds the random number generator
 	
 	do{
-		// Running the main game logic
-		score =	runLevelThree(score);
+		// Feel free to uncomment any of the three levels to play them (I haven't implemented the level picking system yet lol)
+
+		//score = runLevelOne(score);
+		//score = runLevelTwo(score);
+		//score = runLevelThree(score);
 	}while(score != 3);
 	
 	printf("\n\nCongratulations! You have won the game!");
@@ -36,3 +39,4 @@ connect each function to work with one another
 - My brain hurts
 - God bless CCPROG1
 */
+
