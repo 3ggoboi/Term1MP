@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include <ctype.h>
-#include "functions.c"
 
 int runLevelOne(int score){
 	int first_num, current_num;
@@ -333,4 +332,5 @@ int runLevelThree(int score){
         return score;
     }
 }
+
 
