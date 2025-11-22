@@ -27,7 +27,7 @@ int selectLevel(int Level){
 	
 }
 
-int numPlayers(nPlayers = 1){
+int numPlayers(int nPlayers){
 
     printf("How many players will be playing the game?\n\n");
     printf("\tSingle Player\n");
@@ -56,14 +56,5 @@ int numPlayers(nPlayers = 1){
 
 
 int playAI(){
-	// make the AI have a 50/50 chance of winning
-}
-
-int main()
-{
-	int Level = 0;
-	
-	selectLevel(Level);
-	
-	return 0;
+	// 50/50 chance the bot guesses right
 }

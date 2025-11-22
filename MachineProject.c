@@ -8,13 +8,24 @@ Section : S19B
 #include <stdio.h>
 #include <time.h>
 #include "functions.c"
+#include "data.c"
 
 
-int mainMenu()
+int main()
 {
-    printf("Welcome to A Walk in the Sequence Park!")
-    
+	int score = 0;
+	srand(time(NULL));		// seeds the random number generator
 	
+	do{
+		
+		score =	runLevelOne(score);
+		printf("Your Current Score is: %d\n", score);
+		
+	}while(score != 3);
+	
+	printf("\n\nCongratulations! You have won the game!");
+	
+	return 0;
 }
 
 
