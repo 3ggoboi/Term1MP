@@ -14,13 +14,23 @@ int diceRoll(){
 	int nRoll, min = 1, max = 6;
 	
 	nRoll = giveRandNums(min, max);
-	printf("\n\nThe number rolled on the die is: %d", nRoll);
+	
+	printf("\n\n=======================================================\n\n");
+	printf("The number rolled on the die is: %d\n", nRoll);
+	printf("You will now have a chance to move up %d space(s)!\n\n", nRoll);	
+	printf("=======================================================\n\n");
+	
+	return nRoll;
 }
 
 int playerPunish(int score){
+	int get_punished;
 	int min = 1, max = 3;
 	
-	score = score - giveRandNums(min, max);
+	get_punished = giveRandNums(min, max);
+	
+	score = score - get_punished;
+	printf("\n\n\t>>> You have unfortunately moved down %d spaces... <<<\n\n", get_punished);
 	
 	return score;
 }

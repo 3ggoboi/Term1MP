@@ -3,6 +3,7 @@
 #include <time.h>
 #include <ctype.h>
 
+
 int runLevelOne(int score){
 	int first_num, current_num;
 	int first_letter, current_letter;
@@ -11,10 +12,13 @@ int runLevelOne(int score){
 	int player_guess, correct_answer;
 	char player_char_guess;
 	
-	
 	int sequence_type = rand() % 2;
 	int min = 1, max = 10;
 
+	int roll = diceRoll(); // Getting the points for the player's turn
+	
+	printf("\t\t   Current score: %d\n\n", score);
+	
 	// Generating a random number sequence
 	if(sequence_type == 1){
 		
@@ -82,15 +86,14 @@ int runLevelOne(int score){
 	
 	// The player gets the right answer
     if (player_guess == correct_answer) {
-        printf("Correct! You guessed it right!\n\n");
-        score = score + 1;
-        printf("\t>>> Your current score is now: %d <<<\n\n", score);
+        printf("Correct! You guessed it right!\n\n\n");
+        printf("\t>>> You have successfully moved up %d spaces! <<<\n\n", roll);
         
-		return score;
+        score += roll;
     } 
     // The player gets the wrong answer
 	else{
-        printf("Incorrect. The next term in the sequence was \n");
+        printf("Incorrect. The next term in the sequence was: ");
         
         if(sequence_type == 1){
         	printf("%d\n", correct_answer);
@@ -100,10 +103,11 @@ int runLevelOne(int score){
 		}
         
     	score = playerPunish(score);
-		printf("\t>>> Your current score is now: %d <<<\n\n", score);
-		
-		return score;
     }
+    
+	printf("\t>>> Your current score is now: %d <<<\n\n", score);
+	
+	return score;
 }
 
 int runLevelTwo(int score){
@@ -118,6 +122,9 @@ int runLevelTwo(int score){
 	int sequence_type = rand() % 2;
 	int min = 1, max = 10;
 
+	int roll = diceRoll(); // Getting the points for the player's turn
+	
+	printf("\t\t   Current score: %d\n\n", score);
 	
 	// Generating a random number sequence
 	if(sequence_type == 1){
@@ -206,14 +213,13 @@ int runLevelTwo(int score){
 	// The player gets the right answer
     if (player_guess1 == correct_answer1 && player_guess2 == correct_answer2) {
         printf("Correct! You got both terms right!\n\n");
-        score = score + 1;
-        printf("\t>>> Your current score is now: %d <<<\n\n", score);
+        printf("\t>>> You have successfully moved up %d spaces! <<<\n\n", roll);
         
-		return score;
+		score += roll;
     } 
     // The player gets the wrong answer
 	else{
-        printf("Incorrect. The next two terms in the sequence are: \n");
+        printf("Incorrect. The next two terms in the sequence are: ");
         
         if(sequence_type == 1){
         	printf("%d and %d\n", correct_answer1, correct_answer2);
@@ -223,10 +229,11 @@ int runLevelTwo(int score){
 		}
         
     	score = playerPunish(score);
-		printf("\t>>> Your current score is now: %d <<<\n\n", score);
-		
-		return score;
     }
+    
+    printf("\t>>> Your current score is now: %d <<<\n\n", score);
+		
+	return score;
 }
 
 int runLevelThree(int score){
@@ -243,15 +250,17 @@ int runLevelThree(int score){
 	
 	int sequence_type = rand() % 2;
 	int min = 1, max = 3;
+	int roll = diceRoll(); // Getting the points for the player's turn
 
 	common_diff = giveRandNums(min, max);
     
     first_num = rand() % 10 + 1; // Start with any of the numbers 1-10
-    
     first_letter = (rand() % ('W' - 'A' + 1) + 'A');
     
     current_num = first_num;
     current_letter = first_letter;
+	
+	printf("\t\t   Current score: %d\n\n", score);
 	
 	printf("===========================================================================\n");	
     printf("Find the next TWO terms in this combined sequence: ");
@@ -314,23 +323,22 @@ int runLevelThree(int score){
         player_guess2 == correct_num2) {
         
         printf("Correct! You got both complex terms right!\n\n");
-        score = score + 1;
-        printf("\t>>> Your current score is now: %d <<<\n\n", score);
+        printf("\t>>> You have successfully moved up %d spaces! <<<\n\n", roll);
         
-        return score;
+        score += roll;
     }
     
     // Player gets the wrong answer
 	else{
-        printf("Incorrect. The next two terms in the sequence are: \n");
+        printf("Incorrect. The next two terms in the sequence are: ");
         
         printf("%c%d and %c%d\n", (char)correct_char1, correct_num1,(char)correct_char2, correct_num2);
         
         score = playerPunish(score);
-        printf("\t>>> Your current score is now: %d <<<\n\n", score);
-        
-        return score;
     }
+    
+    printf("\t>>> Your current score is now: %d <<<\n\n", score);
+        
+    return score;
 }
-
 
