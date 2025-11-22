@@ -7,8 +7,11 @@ Section : S19B
 
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
+#include <ctype.h>
 #include "functions.c"
 #include "data.c"
+#include "Game Logic.c"
 
 
 int main()
@@ -17,10 +20,8 @@ int main()
 	srand(time(NULL));		// seeds the random number generator
 	
 	do{
-		
-		score =	runLevelOne(score);
-		printf("Your Current Score is: %d\n", score);
-		
+		// Running the main game logic
+		score =	runLevelThree(score);
 	}while(score != 3);
 	
 	printf("\n\nCongratulations! You have won the game!");

@@ -55,6 +55,4 @@ int numPlayers(int nPlayers){
 }
 
 
-int playAI(){
-	// 50/50 chance the bot guesses right
-}
+
