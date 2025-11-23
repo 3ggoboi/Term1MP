@@ -14,11 +14,13 @@ int runLevelOne(int score){
 	
 	int sequence_type = rand() % 2;
 	int min = 1, max = 10;
-
+	
+	promptRoll();
+	
 	int roll = diceRoll(); // Getting the points for the player's turn
 	
 	score += roll; //Player moves up __ spaces
-	printf("\t\t   Current score: %d\n\n", score);
+	printf("\t\t>>> Current score: %d <<<\n\n", score);
 	
 	// Generating a random number sequence
 	if(sequence_type == 1){
@@ -120,11 +122,13 @@ int runLevelTwo(int score){
 	
 	int sequence_type = rand() % 2;
 	int min = 1, max = 10;
-
+	
+	promptRoll();
+	
 	int roll = diceRoll(); // Getting the points for the player's turn
 	
 	score += roll; //Player moves up __ spaces
-	printf("\t\t   Current score: %d\n\n", score);
+	printf("\t\t>>> Current score: %d <<<\n\n", score);
 		
 	// Generating a random number sequence
 	if(sequence_type == 1){
@@ -248,7 +252,6 @@ int runLevelThree(int score){
 	
 	int sequence_type = rand() % 2;
 	int min = 1, max = 3;
-	int roll = diceRoll(); // Getting the points for the player's turn
 
 	common_diff = giveRandNums(min, max);
     
@@ -258,8 +261,12 @@ int runLevelThree(int score){
     current_num = first_num;
     current_letter = first_letter;
 	
+	
+	promptRoll();	// Prompts user to roll
+	int roll = diceRoll(); // Getting the points for the player's turn
+	
 	score += roll; //Player moves up __ spaces
-	printf("\t\t   Current score: %d\n\n", score);
+	printf("\t\t>>> Current score: %d <<<\n\n", score);
 	
 	printf("===========================================================================\n");	
     printf("Find the next TWO terms in this combined sequence: ");

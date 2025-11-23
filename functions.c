@@ -10,6 +10,21 @@ int giveRandNums(int min, int max) {
     int rd_num = rand() % (max - min + 1) + min;
 }
 
+// Function to prompt the user to press a key (followed by Enter) to continue
+void promptRoll() {
+    char key_press; // User input
+    
+    printf("\n=======================================================\n\n");
+    printf("Ready to roll the dice?\nPress ANY key (and then Enter) to roll the die...");
+    
+    // In case the user SOMEHOW messes up
+    if (scanf(" %c", &key_press) != 1) {
+        printf("\nInput error occurred.\n");
+    }
+    
+    printf("\n");
+}
+
 int diceRoll(){
 	int nRoll, min = 1, max = 6;
 	
