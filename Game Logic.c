@@ -4,7 +4,7 @@
 #include <ctype.h>
 
 
-int runLevelOne(int score){
+int runLevelOne(int *score){
 	int first_num, current_num;
 	int first_letter, current_letter;
 	int sequence_length, common_diff;
@@ -19,8 +19,8 @@ int runLevelOne(int score){
 	
 	int roll = diceRoll(); // Getting the points for the player's turn
 	
-	score += roll; //Player moves up __ spaces
-	printf("\t\t>>> Current score: %d <<<\n\n", score);
+	*score += roll; //Player moves up __ spaces
+	printf("\t\t>>> Current score: %d <<<\n\n", *score);
 	
 	// Generating a random number sequence
 	if(sequence_type == 1){
@@ -103,15 +103,15 @@ int runLevelOne(int score){
 			printf("%c\n", (char)correct_answer);
 		}
         
-    	score = playerPunish(score);
+    	*score = playerPunish(*score);
     }
     
-	printf("\t>>> Your current score is now: %d <<<\n\n", score);
+	printf("\t     >>> Your current score is now: %d <<<\n\n", *score);
 	
-	return score;
+	return roll;
 }
 
-int runLevelTwo(int score){
+int runLevelTwo(int *score){
 	int first_num, current_num;
 	int first_letter, current_letter;
 	int sequence_length, common_diff;
@@ -127,7 +127,7 @@ int runLevelTwo(int score){
 	
 	int roll = diceRoll(); // Getting the points for the player's turn
 	
-	score += roll; //Player moves up __ spaces
+	*score += roll; //Player moves up __ spaces
 	printf("\t\t>>> Current score: %d <<<\n\n", score);
 		
 	// Generating a random number sequence
@@ -233,12 +233,12 @@ int runLevelTwo(int score){
     	score = playerPunish(score);
     }
     
-    printf("\t>>> Your current score is now: %d <<<\n\n", score);
+    printf("\t     >>> Your current score is now: %d <<<\n\n", score);
 		
 	return score;
 }
 
-int runLevelThree(int score){
+int runLevelThree(int *score){
 	int first_num, current_num;
 	int first_letter, current_letter;
 	int sequence_length, common_diff;
@@ -250,7 +250,6 @@ int runLevelThree(int score){
 	int correct_num1, correct_num2;
 	int correct_char1, correct_char2;
 	
-	int sequence_type = rand() % 2;
 	int min = 1, max = 3;
 
 	common_diff = giveRandNums(min, max);
@@ -265,7 +264,7 @@ int runLevelThree(int score){
 	promptRoll();	// Prompts user to roll
 	int roll = diceRoll(); // Getting the points for the player's turn
 	
-	score += roll; //Player moves up __ spaces
+	*score += roll; //Player moves up __ spaces
 	printf("\t\t>>> Current score: %d <<<\n\n", score);
 	
 	printf("===========================================================================\n");	
@@ -341,7 +340,7 @@ int runLevelThree(int score){
         score = playerPunish(score);
     }
     
-    printf("\t>>> Your current score is now: %d <<<\n\n", score);
+    printf("\t     >>> Your current score is now: %d <<<\n\n", score);
         
     return score;
 }

@@ -4,17 +4,18 @@
 #include <ctype.h>
 
 int giveRandNums(int min, int max) {
-	srand(time(NULL));
 	
 	// Find the random number in the range [min, max]
     int rd_num = rand() % (max - min + 1) + min;
+    
+    return rd_num;
 }
 
 // Function to prompt the user to press a key (followed by Enter) to continue
 void promptRoll() {
     char key_press; // User input
     
-    printf("\n=======================================================\n\n");
+    printf("\n");
     printf("Ready to roll the dice?\nPress ANY key (and then Enter) to roll the die...");
     
     // In case the user SOMEHOW messes up

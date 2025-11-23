@@ -21,31 +21,29 @@ int selectLevel(int Level){
 			switch(Level)
 			{
 				case 1:
-					printf("\n\nYou have selected the Easy Difficulty\n");
-					printf("The following sequence problems will deal with numbers and letters\n");
-					printf("While asking for the next term in the sequence!(e.g. A B C D __)\n\n");
-					return 1;;
+					printf("\n\n\t\t>>> You have selected the Easy Difficulty <<<\n\n");
+					printf("\tThe following sequence problems will deal with numbers and letters\n");
+					printf("\tWhile asking for the next term in the sequence!(e.g. A B C D __)\n\n\n");
+					return 1;
 				case 2:
-					printf("\n\nYou have selected the Easy Difficulty\n");
-					printf("The following sequence problems will deal with numbers and letters\n");
-					printf("While asking for the next term in the sequence!(e.g. 1 3 5 7 __ __)\n\n");
+					printf("n\n\t\t>>> You have selected the Medium Difficulty <<<\n\n");
+					printf("\tThe following sequence problems will deal with numbers and letters\n");
+					printf("\tWhile asking for the next term in the sequence!(e.g. 1 3 5 7 __ __)\n\n\n");
 					return 2;
 				case 3:
-					printf("\n\nYou have selected the Hard Difficulty\n");
-					printf("The following sequence problems will deal with combined letter and number sequences\n\n");
-						printf("While asking for the next TWO terms in the sequence!(e.g. A1 C3 E5 G7 __ __)\n\n");
+					printf("\n\n\t\t>>> You have selected the Hard Difficulty <<<\n\n");
+					printf("\tThe following sequence problems will deal with combined letter and number sequences\n");
+						printf("\tWhile asking for the next TWO terms in the sequence!(e.g. A1 C3 E5 G7 __ __)\n\n\n");
 					return 3;
 				default:
-					printf("ERROR: Please input a valid difficulty level!!!\n\n");
 					break;
 			}
 		else {
-			printf("Invalid Input. Please try again...");
+			printf("ERROR: Invalid Input! Please try again...");
 			
 			Level = 0;
 		}
-	}while(Level != 1 && Level != 2 && Level != 3);
-	
+	}while(Level < 1 || Level > 3);
 }
 
 int numPlayers(int nPlayers){
@@ -92,6 +90,53 @@ int numPlayers(int nPlayers){
     } while (true); // Loop runs until a valid number is returned
 }
 
+int runPlayerTurn(int player_turn, int numberofPlayers, int Level, int *scoreP1, int *scoreP2, int *scoreP3, int *scoreP4){
+	int score_display;
+	int current_player = player_turn + 1;
+	int roll_result = 0; //we are using this to catch if the player rolls a 6
 
+	int *scoreToUpdate = NULL;
+	
+	switch(current_player){
+		case 1:
+			scoreToUpdate = scoreP1;
+			break;
+		case 2:
+			scoreToUpdate = scoreP2;
+			break;
+		case 3:
+			scoreToUpdate = scoreP3;
+			break;
+		case 4:
+			scoreToUpdate = scoreP4;
+			break;
+		default:
+			printf("!!! ERROR: Invalid player count !!!");
+			return;
+	}
+	
+	score_display = *scoreToUpdate;
+	
+	printf("=======================================================================\n\n");
+	printf("\n\t  =======================================================\n");
+    printf("\t    >>> It is now Player %d's turn! Current Score: %d <<<\n", current_player, score_display);
+    printf("\t  =======================================================\n\n");
+    
+    switch(Level){
+    	case 1:
+    		roll_result = runLevelOne(scoreToUpdate);
+    		break;
+    	case 2:
+    		roll_result = runLevelTwo(scoreToUpdate);
+    		break;
+    	case 3:
+    		roll_result = runLevelThree(scoreToUpdate);
+    		break;
+    	default:
+    		break;
+	}
+	
+	return roll_result;
+}
 
 

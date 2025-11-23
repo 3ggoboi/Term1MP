@@ -13,9 +13,10 @@ Matthew Miguel S. Fabiala, DLSU ID# 12504343
 #include <time.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "functions.c"
 #include "data.c"
+#include "functions.c"
 #include "Game Logic.c"
+
 
 
 int main()
@@ -23,7 +24,9 @@ int main()
 	int score = 0;
 	int numberofPlayers = 0;
 	int Level = 0; // Intialize the level
-	int player_turn;
+	int player_turn = 0;
+	int last_roll = 0;
+	int game_running = 1; //Initialize that the game is running (1 means it's running, 0 means it ended)
 	
 	//Player Scores
 	int scoreP1 = 0;
@@ -42,22 +45,46 @@ int main()
 	
 	// Running the main game logic
 	do{
+		// Turn will cycle if the last roll is not 6
+		if(last_roll != 6){
+			player_turn = player_turn % numberofPlayers;
+		}
+		else{
+			printf("=======================================================================\n\n\n\n\n\n");
+			printf(">>> You have rolled a 6 on the dice last turn! You now get an extra turn!!! <<<\n\n\n\n\n\n");
+		}
 		
-		switch(Level){
+		//Run the turn and CAPTURE THE VALUE of the resulting roll
+		last_roll = runPlayerTurn(player_turn, numberofPlayers, Level, &scoreP1, &scoreP2, &scoreP3, &scoreP4);
+		
+		switch(player_turn + 1){
 			case 1:
-				score =	runLevelOne(score);
+				score = scoreP1;
 				break;
-			case 2:
-				score = runLevelTwo(score);
+			case 2: 
+				score = scoreP2;
 				break;
 			case 3:
-				score = runLevelThree(score);
+				score = scoreP3;
+				break;
+			case 4:
+				score = scoreP4;
 				break;
 		}
 	
-	}while(score != 50);
+		if(score == 50){
+			printf("\n\nPlayer %d wins the game by reaching the 50th tile first! Congratulations!!!", player_turn + 1);
+			game_running = 0;
+		}
+			
+		if (last_roll != 6 && game_running){
+			player_turn++;
+		}	
+		//If the player did NOT roll a 6, the player turn is incremented
+		
+	}while(game_running);
 	
-	printf("\n\nCongratulations! You have won the game!");
+	printf("\n\nThe game has ended. Thank you for playing! I hope you enjoyed it <3\n");
 	
 	return 0;
 }
