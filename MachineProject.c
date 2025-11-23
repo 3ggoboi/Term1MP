@@ -1,4 +1,4 @@
-/***************************************************************************
+	/***************************************************************************
 This is to certify that this project is my own work, based on my personal efforts
 in studying and applying the concepts learned. I have constructed the functions
 and their respective algorithms and corresponding code by myself. The program
@@ -13,7 +13,6 @@ Matthew Miguel S. Fabiala, DLSU ID# 12504343
 #include <time.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "data.c"
 #include "functions.c"
 #include "Game Logic.c"
 
