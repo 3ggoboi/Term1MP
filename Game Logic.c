@@ -476,8 +476,10 @@ int runLevelTwo(int *score){
 	@param common_diff is the common difference between letters or numbers (e.g. sequences "A C E G" and "1 3 5 7" have a common difference of 2)
 	@param player_guess1 is the player's first answer to the number sequence given
 	@param player_guess2 is the player's second answer to the number sequence given
-	@param correct_answer1 is the first correct value that the player must input to not get punished
-	@param correct_answer2 is the second correct value that the player must input to not get punished
+	@param correct_num1 is the first correct number value that the player must input to not get punished
+	@param correct_num2 is the second correct number value that the player must input to not get punished
+	@param correct_char1 is the first correct letter value that the player must input to not get punished
+	@param correct_char2 is the second correct letter value that the player must input to not get punished
 	@param player_char_guess1 is the player's first answer for the letter sequence given
 	@param player_char_guess2 is the player's second answer for the letter sequence given
 	@param char_input1 is the first raw character input given by the player
@@ -638,6 +640,11 @@ int runPlayerTurn(int player_turn, int *numberofPlayers, int Level, int *scoreP1
 			printf("!!! ERROR: Invalid player count !!!");
 			break;
 	}
+	
+	// Emergency check that prevents the program from crashing if there are somehow more than 4 players
+	if (scoreToUpdate == NULL) {
+    return 0; //exit the function and return a non-6 roll to skip the turn
+}
 	
 	score_display = *scoreToUpdate;		//Using this so that we can display the score before it is updated
 	
